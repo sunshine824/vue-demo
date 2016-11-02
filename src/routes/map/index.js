@@ -1,5 +1,6 @@
 // 不同模块应代码分离
 import msgRoutes from './msg'
+import filterRoutes from './filter'
 
 export default {
   '*': {
@@ -32,6 +33,7 @@ export default {
       require(['VIEW/welcome'], resolve)
     }
   },
+    ...filterRoutes,
+    ...msgRoutes
 
-  ...msgRoutes
 }

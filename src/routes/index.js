@@ -18,13 +18,14 @@ router.map(routesMap)
 // ========================================
 // 中间件
 // ========================================
-// 简单的路由跳转 Logger
+// 简单的路由跳转 Logger,next()进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed (确认的)
 router.beforeEach(({ to, from, abort, redirect, next }) => {
   console.info(`[RouteLogger] ${decodeURI(from.path)} => ${decodeURI(to.path)}`)
   next()
 })
 
 // 权限拦截
+// abort()可以无效化并取消此次切换。
 router.beforeEach(({ to, from, abort, redirect, next }) => {
   if (to.needToLogin && !router.app.userData) { // router 实例会暴露出根组件实例 app
     alert('需要登录后才能访问')

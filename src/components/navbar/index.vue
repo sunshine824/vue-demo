@@ -31,6 +31,11 @@
                 留言板
               </a>
             </li>
+            <li :class="{ 'active': $route.path === '/filter' }">
+              <a v-link="'/filter'">
+                筛选
+              </a>
+            </li>
           </ul>
 
           <login-form v-if="!$root.userData"></login-form>
@@ -61,6 +66,7 @@ export default {
 
         // 【手动】同步顶级变量与服务
         console.info('[Navbar] 检测完毕，当前用户已经登录，立即设置 session 到 $root.userData')
+        console.log('返回的用户名:' + userSessData.username)
         this.$root.userData = userSessData
       })
   }

@@ -43,7 +43,7 @@ config.plugins.push(
   }),
   new BrowserSyncPlugin({
     host: '127.0.0.1',
-    port: 8080,
+    port: 8083,
     proxy: 'http://127.0.0.1:8000/',
     logConnections: false,
     notify: false
