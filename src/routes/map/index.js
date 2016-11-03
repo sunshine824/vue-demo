@@ -1,6 +1,8 @@
 // 不同模块应代码分离
 import msgRoutes from './msg'
 import filterRoutes from './filter'
+import loginRoutes from './login'
+import registerRoutes from './register'
 
 export default {
   '*': {
@@ -33,6 +35,8 @@ export default {
       require(['VIEW/welcome'], resolve)
     }
   },
+    ...loginRoutes,
+    ...registerRoutes,
     ...filterRoutes,
     ...msgRoutes
 
